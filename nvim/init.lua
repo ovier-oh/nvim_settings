@@ -24,7 +24,7 @@ require("lazy").setup({
             end
 
             configs.setup({
-                ensure_installed = { "lua", "python", "bash", "markdown", "markdown_inline" },
+                ensure_installed = { "lua", "python", "bash", "markdown", "markdown_inline", "rust" },
                 highlight = { enable = true },
             })
         end,
@@ -41,7 +41,7 @@ require("lazy").setup({
         dependencies = { "mason.nvim" },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "clangd", "lua_ls" },
+                ensure_installed = { "pyright", "clangd", "lua_ls", "rust_analyzer", },
             })
         end,
     },
@@ -51,6 +51,7 @@ require("lazy").setup({
             -- Activar servidores
             vim.lsp.enable("pyright")
             vim.lsp.enable("clangd")
+            vim.lsp.enable("rust_analyzer")
 
             -- Formateo al guardar
             vim.api.nvim_create_autocmd("LspAttach", {

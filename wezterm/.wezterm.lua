@@ -1,26 +1,25 @@
 -- Pull in the wezterm API
-local wezterm      = require 'wezterm'
+local wezterm                       = require 'wezterm'
 
 -- This will hold the configuration
-local config       = wezterm.config_builder()
+local config                        = wezterm.config_builder()
 
 -- Aqui setting
-config.font_size   = 10
-config.line_height = 1
-config.font        = wezterm.font("Hack Nerd Font")
-
--- Color cursor
-config.colors      = {
-    cursor_bg = "orange",
-    cursor_border = "white",
-}
-
+config.font_size                    = 10
+config.line_height                  = 1
+config.font                         = wezterm.font("Hack Nerd Font")
 
 -- Apareance
-config.window_decorations = "RESIZE"
+config.window_decorations           = "TITLE | RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
+config.color_scheme                 = "GruvboxDark"
 
-config.keys = {
+config.colors                       = {
+    cursor_bg = "#fe8019",
+    cursor_border = "#fe8019",
+}
+
+config.keys                         = {
     -- Nueva pestaña
     { key = "t",   mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
 
@@ -40,6 +39,6 @@ config.keys = {
     { key = "d",   mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 
     -- Split vertical
-    { key = "v",   mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "m",   mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 }
 return config
